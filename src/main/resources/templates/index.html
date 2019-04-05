@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<!-- 不存在则忽略，显示hello null!(可以通过默认值进行设置)-->
+<table>
+    <tr>
+        <td>手机品牌</td>
+        <td>全部</td>
+        <td th:each="brand : ${brandList}">
+            <b th:text="${brand}">华为</b>
+        </td>
+    </tr>
+    <tr>
+        <td>操作系统</td>
+        <td>全部</td>
+        <td th:each="system : ${systemList}">
+            <b th:text="${system}">Android 5.0</b>
+        </td>
+    </tr>
+    <tr>
+        <td>分辨率</td>
+        <td>全部</td>
+        <td th:each="size : ${sizeList}">
+            <b th:text="${size}">1920*1080</b>
+        </td>
+    </tr>
+</table>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>NAME</th>
+        <th>首次连接时间</th>
+        <th>状态</th>
+        <th>系统版本</th>
+        <th>分辨率</th>
+        <th>CPU</th>
+        <th>内存</th>
+    </tr>
+    <tr th:each="mobile : ${mobileList}">
+        <td><img src="/huawei.jpeg"></td>
+        <td th:text="${mobile.id}">1</td>
+        <td th:text="${mobile.name}">Android Name</td>
+        <td th:text="${mobile.init_time}">2000-01-01</td>
+        <td th:text="${mobile.status}">失联中</td>
+        <td th:text="${mobile.system}">Android 6.0</td>
+        <td th:text="${mobile.size}">1080*720</td>
+        <td th:text="${mobile.cpu}">2</td>
+        <td th:text="${mobile.memory}">1024</td>
+
+    </tr>
+</table>
+</body>
+</html>
